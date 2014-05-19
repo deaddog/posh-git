@@ -15,10 +15,13 @@ function global:prompt {
     # Reset color, which can be messed up by Enable-GitColors
     $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
 
-    Write-Host($pwd.ProviderPath) -nonewline
-
     Write-VcsStatus
 
+	if(-Not $Global:GitStatus)
+    {
+		Write-Host($pwd.ProviderPath) -nonewline
+	}
+	
     $global:LASTEXITCODE = $realLASTEXITCODE
     return "> "
 }
