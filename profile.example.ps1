@@ -32,3 +32,4 @@ Pop-Location
 
 $thisScript = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 . ($thisScript + '.\commands\git_commands.ps1')
+. ($thisScript + '.\commands\program_commands.ps1')
