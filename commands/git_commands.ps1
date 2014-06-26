@@ -39,6 +39,10 @@ function RunGitStatusWithClear {
 	clear;
 	RunGitStatus;
 }
+function RunGitCommit([string]$message) {
+    git commit -m $message;
+}
+
 function SetGitUsernameEmailForAAU {
     git config user.name "Mikkel Sandø Larsen"
     git config user.email "milars11@student.aau.dk"
@@ -53,6 +57,7 @@ Set-Alias -Name gpush -Value RunGitPush
 Set-Alias -Name gpull -Value RunGitPull
 Set-Alias -Name gsync -Value RunGitSync
 Set-Alias -Name gamend -Value RunGitAmend
+Set-Alias -Name gic -Value RunGitCommit
 
 function LoadVisualStudioGitignore {
     $webclient = New-Object System.Net.WebClient
