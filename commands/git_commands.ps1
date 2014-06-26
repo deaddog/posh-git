@@ -53,3 +53,9 @@ Set-Alias -Name gpush -Value RunGitPush
 Set-Alias -Name gpull -Value RunGitPull
 Set-Alias -Name gsync -Value RunGitSync
 Set-Alias -Name gamend -Value RunGitAmend
+
+function LoadVisualStudioGitignore {
+    $webclient = New-Object System.Net.WebClient
+    $webclient.DownloadFile("https://rawgit.com/github/gitignore/master/VisualStudio.gitignore", "$pwd\.gitignore")
+    $webclient.Dispose()
+}
