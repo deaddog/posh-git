@@ -5,22 +5,22 @@
 function RunGitStatus { 
 	git status -s
 }
-function RunGitLog([switch]$s, [int]$c) {
+function RunGitLog([switch]$all, [int]$c) {
     if($c -le 0) { $c = 0 }
     if($c -eq 0) { $append = "" } else { $append = -$c }
     
-	if($s)
+	if($all)
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph $append
+		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $append
 	}
 	else
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $append
+		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph $append
 	}
 }
 function RunGitLogSimple()
 {
-    RunGitLog -s -c 5
+    RunGitLog -c 5
 }
 function RunGitDiff([string]$file) {
     git diff --word-diff=color -w $file
