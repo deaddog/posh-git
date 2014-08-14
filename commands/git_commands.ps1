@@ -42,6 +42,9 @@ function RunGitStatusWithClear {
 function RunGitCommit([string]$message) {
     git commit -m $message;
 }
+function RunGitDeleteUnaddedFiles() {
+	git ls-files --others --exclude-standard | grep . | rm
+}
 
 function SetGitUsernameEmailForAAU {
     git config user.name "Mikkel Sandø Larsen"
@@ -58,6 +61,7 @@ Set-Alias -Name gpull -Value RunGitPull
 Set-Alias -Name gsync -Value RunGitSync
 Set-Alias -Name gamend -Value RunGitAmend
 Set-Alias -Name gic -Value RunGitCommit
+Set-Alias -Name gdelnew -Value RunGitDeleteUnaddedFiles
 
 function LoadVisualStudioGitignore {
     $webclient = New-Object System.Net.WebClient
