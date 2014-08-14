@@ -43,7 +43,7 @@ function RunGitCommit([string]$message) {
     git commit -m $message;
 }
 function RunGitDeleteUnaddedFiles() {
-	git ls-files --others --exclude-standard | grep . | rm
+	git ls-files --others --exclude-standard | rm
 }
 
 function SetGitUsernameEmailForAAU {
