@@ -154,7 +154,7 @@ function script:expandGitAlias($cmd, $rest) {
 }
 
 function GitTabExpansion($lastBlock) {
-
+    
     if($lastBlock -match "^$(Get-AliasPattern git) (?<cmd>\S+)(?<args> .*)$") {
         $lastBlock = expandGitAlias $Matches['cmd'] $Matches['args']
     }
@@ -305,6 +305,7 @@ function TabExpansion($line, $lastWord) {
         # Execute git tab completion for all git-related commands
         "^$(Get-AliasPattern git) (.*)" { GitTabExpansion $lastBlock }
         "^$(Get-AliasPattern tgit) (.*)" { GitTabExpansion $lastBlock }
+        "^giff .*" { GitTabExpansion ($lastBlock -replace "^giff ","git diff ") }
 
         # Fall back on existing tab expansion
         default { if (Test-Path Function:\TabExpansionBackup) { TabExpansionBackup $line $lastWord } }
