@@ -23,7 +23,7 @@ function RunGitLogSimple()
     RunGitLog -c 5
 }
 function RunGitDiff([string]$file) {
-	if($file -match "^[a-z0-9]{7,}") {
+	if($file -match "^\#[a-z0-9]{7,}$") {
 		git diff --word-diff=color -w $file^ $file
 	}
 	else {
