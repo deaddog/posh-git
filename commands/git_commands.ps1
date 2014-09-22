@@ -24,11 +24,16 @@ function RunGitLogSimple()
 }
 function RunGitDiff([string]$file) {
 	if($file -match "^\#[a-z0-9]{7,}$") {
-		git diff --word-diff=color -w $file^ $file
+		git diff --word-diff=color -w $file^ $file;
 	}
 	else {
-    	git diff --word-diff=color -w $file
+    	git diff --word-diff=color -w $file;
 	}
+}
+function RunGitDiffWithClear([string]$file)
+{
+	clear;
+	RunGitDiff($file);
 }
 function RunGitStatusWithClear {
 	clear;
@@ -49,6 +54,7 @@ function SetGitUsernameEmailForAAU {
 Set-Alias -Name gstat -Value RunGitStatus
 Set-Alias -Name gstac -Value RunGitStatusWithClear
 Set-Alias -Name giff -Value RunGitDiff
+Set-Alias -Name gliff -Value RunGitDiffWithClear
 Set-Alias -Name glog -Value RunGitLog
 Set-Alias -Name glo -Value RunGitLogSimple
 Set-Alias -Name gamend -Value RunGitAmend
