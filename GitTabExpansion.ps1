@@ -306,6 +306,7 @@ function TabExpansion($line, $lastWord) {
         "^$(Get-AliasPattern git) (.*)" { GitTabExpansion $lastBlock }
         "^$(Get-AliasPattern tgit) (.*)" { GitTabExpansion $lastBlock }
         "^giff .*" { GitTabExpansion ($lastBlock -replace "^giff ","git diff ") }
+        "^gliff .*" { GitTabExpansion ($lastBlock -replace "^gliff ","git diff ") }
 
         # Fall back on existing tab expansion
         default { if (Test-Path Function:\TabExpansionBackup) { TabExpansionBackup $line $lastWord } }
