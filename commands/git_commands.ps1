@@ -63,6 +63,6 @@ Set-Alias -Name gdelnew -Value RunGitDeleteUnaddedFiles
 
 function LoadVisualStudioGitignore {
     $webclient = New-Object System.Net.WebClient
-    $webclient.DownloadFile("https://rawgit.com/github/gitignore/master/VisualStudio.gitignore", "$pwd\.gitignore")
+    $webclient.DownloadFile("https://raw.githubusercontent.com/github/gitignore/master/VisualStudio.gitignore", "$pwd\.gitignore")
     $webclient.Dispose()
 }
