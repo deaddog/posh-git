@@ -66,3 +66,8 @@ function LoadVisualStudioGitignore {
     $webclient.DownloadFile("https://raw.githubusercontent.com/github/gitignore/master/VisualStudio.gitignore", "$pwd\.gitignore")
     $webclient.Dispose()
 }
+function LoadTexGitignore {
+    $webclient = New-Object System.Net.WebClient
+    $webclient.DownloadFile("https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore", "$pwd\.gitignore")
+    $webclient.Dispose()
+}
