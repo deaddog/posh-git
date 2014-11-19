@@ -51,6 +51,10 @@ function SetGitUsernameEmailForAAU {
     git config user.email "milars11@student.aau.dk"
 }
 
+function RunGitMergeTool {
+  git mergetool --no-prompt
+}
+
 Set-Alias -Name gstat -Value RunGitStatus
 Set-Alias -Name gstac -Value RunGitStatusWithClear
 Set-Alias -Name giff -Value RunGitDiff
@@ -60,6 +64,7 @@ Set-Alias -Name glo -Value RunGitLogSimple
 Set-Alias -Name gamend -Value RunGitAmend
 Set-Alias -Name gic -Value RunGitCommit
 Set-Alias -Name gdelnew -Value RunGitDeleteUnaddedFiles
+Set-Alias -Name gmt -Value RungitMergeTool
 
 function LoadVisualStudioGitignore {
     $webclient = New-Object System.Net.WebClient
