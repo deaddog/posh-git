@@ -28,16 +28,16 @@ function StartNotepadPlusPlus([string]$arg1)
 function StartSublimeText([string]$arg1)
 {
     Write-Host "Starting " -ForegroundColor "DarkGray" -NoNewline
-    Write-Host "Sublime Text 2" -ForegroundColor "Magenta" -NoNewline
+    Write-Host "Sublime Text 3" -ForegroundColor "Magenta" -NoNewline
 
     if($arg1 -eq "")
     {
-        Start-Process "C:\Program Files\Sublime Text 2\sublime_text.exe"
+        Start-Process "C:\Program Files\Sublime Text 3\sublime_text.exe"
     }
     else
     {
         Write-Host ": ""$arg1""" -NoNewline
-        Start-Process "C:\Program Files\Sublime Text 2\sublime_text.exe" $arg1
+        Start-Process "C:\Program Files\Sublime Text 3\sublime_text.exe" $arg1
     }
     Write-Host ""
 }
