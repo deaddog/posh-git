@@ -41,6 +41,10 @@ function StartSublimeText([string]$arg1)
     }
     Write-Host ""
 }
+function ClearLatexDirectory()
+{
+    ls -r | Where {$_ -match "\.(aux|bbl|bak|bit|blg|dvi|lof|log|lot|glo|ilg|ind|out|pre|synctex.gz|tdo|thm|toc)$"} | rm
+}
 
 Set-Alias -Name npp -Value StartNotepadPlusPlus
 Set-Alias -Name sub -Value StartSublimeText
