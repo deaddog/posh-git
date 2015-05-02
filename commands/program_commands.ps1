@@ -46,7 +46,13 @@ function ClearLatexDirectory()
     ls -r | Where {$_ -match "\.(aux|bbl|bak|bit|blg|dvi|lof|log|lot|glo|ilg|ind|out|pre|synctex.gz|tdo|thm|toc)$"} | rm
 }
 
+function BuildRelease()
+{
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe /p:Configuration=Release
+}
+
 Set-Alias -Name npp -Value StartNotepadPlusPlus
 Set-Alias -Name sub -Value StartSublimeText
 Set-Alias -Name ocd -Value OpenExplorer
 Set-Alias -Name msbuild -Value "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe"
+Set-Alias -Name msbuildr -Value BuildRelease
