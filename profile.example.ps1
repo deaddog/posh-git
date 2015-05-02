@@ -30,7 +30,7 @@ function global:prompt {
     }
 
     $global:LASTEXITCODE = $realLASTEXITCODE
-    return "> "
+    return ([char] (Get-Random -Minimum 945 -Maximum 969)) + " "
 }
 
 Enable-GitColors
