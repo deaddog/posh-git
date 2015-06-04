@@ -3,7 +3,7 @@
 }
 
 function RunGitStatus { 
-	git status -s
+	git status -s -u
 }
 function RunGitLog([switch]$all, [int]$c) {
     if($c -le 0) { $c = 0 }
