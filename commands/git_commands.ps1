@@ -5,30 +5,22 @@
 function RunGitStatus { 
 	git status -s -u
 }
-function RunGitLog([switch]$all, [int]$c) {
-    if($c -le 0) { $c = 0 }
-    if($c -eq 0) { $append = "" } else { $append = -$c }
-    
+function RunGitLog([switch]$all) {
 	if($all)
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $append
+		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $args
 	}
 	else
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph $append
+		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph $args
 	}
 }
 function RunGitLogSimple()
 {
-    RunGitLog -c 5
+    RunGitLog -5 $args
 }
-function RunGitDiff([string]$file) {
-	if($file -match "^\#[a-z0-9]{7,}$") {
-		git diff --word-diff=color -w $file^ $file;
-	}
-	else {
-    	git diff --word-diff=color -w $file;
-	}
+function RunGitDiff() {
+    git diff --word-diff=color -w $args;
 }
 function RunGitDiffWithClear([string]$file)
 {
@@ -37,7 +29,7 @@ function RunGitDiffWithClear([string]$file)
 }
 function RunGitStatusWithClear {
 	clear;
-	RunGitStatus;
+	RunGitStatus $args;
 }
 function RunGitCommit([string]$message) {
     git commit -m $message;
