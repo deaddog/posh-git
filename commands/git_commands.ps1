@@ -3,7 +3,7 @@
 }
 
 function RunGitStatus { 
-	git status -s -u
+	git status -s -u $args
 }
 function RunGitLog([switch]$all) {
 	if($all)
