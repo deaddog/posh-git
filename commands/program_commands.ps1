@@ -43,7 +43,7 @@ function StartSublimeText([string]$arg1)
 }
 function ClearLatexDirectory()
 {
-    ls -r | Where {$_ -match "\.(aux|bbl|bak|bit|blg|dvi|lof|log|lot|glo|ilg|ind|out|pre|synctex.gz|tdo|thm|toc)$"} | rm
+    ls -r | Where {$_ -match "\.(aux|bbl|bak|bit|blg|dvi|lof|log|lot|glo|ilg|ind|out|pre|synctex.gz|tdo|thm|toc|run.xml|)$"} | rm
 }
 
 function BuildRelease()
