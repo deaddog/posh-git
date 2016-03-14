@@ -23,6 +23,10 @@ function RunGitLogNew()
 {
     RunGitLog origin/master.. -- $args
 }
+function RunGitLogMaster()
+{
+    RunGitLog master.. -- $args
+}
 function RunGitDiff() {
     git diff --word-diff=color -w $args;
 }
@@ -58,6 +62,7 @@ Set-Alias -Name gliff -Value RunGitDiffWithClear
 Set-Alias -Name glog -Value RunGitLog
 Set-Alias -Name glo -Value RunGitLogSimple
 Set-Alias -Name glon -Value RunGitLogNew
+Set-Alias -Name glom -Value RunGitLogMaster
 Set-Alias -Name gamend -Value RunGitAmend
 Set-Alias -Name gic -Value RunGitCommit
 Set-Alias -Name gdelnew -Value RunGitDeleteUnaddedFiles
