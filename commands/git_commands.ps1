@@ -6,9 +6,9 @@ function RunGitStatus {
 	git status -s -u $args
 }
 function RunGitLog([switch]$all) {
-	if($all)
+  if($all)
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $args
+		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $(git reflog show --format="%h" stash) $args
 	}
 	else
 	{
