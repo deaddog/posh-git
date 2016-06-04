@@ -40,10 +40,9 @@ function RunGitLogMaster()
 function RunGitDiff() {
     git diff --word-diff=color -w $args;
 }
-function RunGitDiffWithClear([string]$file)
+function RunGitDiffWithClear()
 {
-	clear;
-	RunGitDiff($file);
+	git --no-pager diff --word-diff=color -w $args | less -R -S
 }
 function RunGitStatusWithClear {
 	clear;
