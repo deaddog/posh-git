@@ -5,10 +5,20 @@
 function RunGitStatus { 
 	git status -s -u $args
 }
+function RunGitLogWrap([switch]$all) {
+  if($all)
+  {
+    RunGitLog -a $args | less -R -S
+  }
+  else
+  {
+    RunGitLog $args
+  }
+}
 function RunGitLog([switch]$all) {
   if($all)
 	{
-		git log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $(git reflog show --format="%h" stash) $args
+		git --no-pager log --pretty=format:'%C(yellow)%h %C(red)%ad %C(cyan)%x09%an%x09%C(auto)%d %Creset%s' --date=relative --graph --all $args
 	}
 	else
 	{
@@ -59,7 +69,7 @@ Set-Alias -Name gstat -Value RunGitStatus
 Set-Alias -Name gstac -Value RunGitStatusWithClear
 Set-Alias -Name giff -Value RunGitDiff
 Set-Alias -Name gliff -Value RunGitDiffWithClear
-Set-Alias -Name glog -Value RunGitLog
+Set-Alias -Name glog -Value RunGitLogWrap
 Set-Alias -Name glo -Value RunGitLogSimple
 Set-Alias -Name glon -Value RunGitLogNew
 Set-Alias -Name glom -Value RunGitLogMaster
