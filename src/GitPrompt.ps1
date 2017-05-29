@@ -43,7 +43,7 @@ $global:GitPromptSettings = [pscustomobject]@{
     BranchGoneStatusForegroundColor             = [ConsoleColor]::DarkCyan
     BranchGoneStatusBackgroundColor             = $null
 
-    BranchIdenticalStatusToSymbol               = [char]0x2261 # ≡ Three horizontal lines
+    BranchIdenticalStatusToSymbol               = $null # [char]0x2261 # ≡ Three horizontal lines
     BranchIdenticalStatusToForegroundColor      = [ConsoleColor]::Cyan
     BranchIdenticalStatusToBackgroundColor      = $null
 
