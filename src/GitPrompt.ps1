@@ -4,7 +4,7 @@
 $global:GitPromptSettings = [pscustomobject]@{
     DefaultForegroundColor                      = $null
 
-    BeforeText                                  = ' ['
+    BeforeText                                  = '['
     BeforeForegroundColor                       = [ConsoleColor]::Yellow
     BeforeBackgroundColor                       = $null
 
@@ -12,7 +12,7 @@ $global:GitPromptSettings = [pscustomobject]@{
     DelimForegroundColor                        = [ConsoleColor]::Yellow
     DelimBackgroundColor                        = $null
 
-    AfterText                                   = ']'
+    AfterText                                   = '] '
     AfterForegroundColor                        = [ConsoleColor]::Yellow
     AfterBackgroundColor                        = $null
 
