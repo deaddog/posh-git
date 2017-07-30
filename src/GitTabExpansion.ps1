@@ -417,6 +417,8 @@ function TabExpansion($line, $lastWord) {
         "^$(Get-AliasPattern git) (.*)" { GitTabExpansion $lastBlock }
         "^$(Get-AliasPattern tgit) (.*)" { GitTabExpansion $lastBlock }
         "^$(Get-AliasPattern gitk) (.*)" { GitTabExpansion $lastBlock }
+        "^gl?iff .*" { GitTabExpansion ($lastBlock -replace "^gl?iff ","git diff ") }
+        "^glog? .*" { GitTabExpansion ($lastBlock -replace "^glog ","git log ") }
 
         # Fall back on existing tab expansion
         default {
